@@ -201,7 +201,7 @@ body {
 .hero h1 {
     font-family: var(--serif);
 
-    font-size: clamp(4.5rem, 10vw, 9.5rem);
+    font-size: clamp(3rem, 10vw, 9.5rem);
 
     line-height: 0.88;
     font-weight: 500;
