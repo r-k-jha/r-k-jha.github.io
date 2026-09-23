@@ -4,12 +4,12 @@
    ========================================================= */
 
 :root {
-    --cream: #f4efe5;
-    --cream-light: #faf7f0;
-    --paper: #eee7d9;
-    --ink: #20211e;
-    --muted: #6d6a61;
-    --line: rgba(32, 33, 30, 0.16);
+    --cream: #d9f4f8;
+    --cream-light: #7df7eb;
+    --paper: #52595f;
+    --ink: #00000d;
+    --muted: #084d82;
+    --line: rgba(8, 227, 92, 0.16);
     --blue: #244b63;
     --copper: #9b6045;
 
@@ -69,22 +69,12 @@ body {
 
     z-index: 100;
 
-    background: rgba(244, 239, 229, 0.72);
+    background: rgba(163, 217, 245, 0.72);
+
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
 
-    border-bottom: 1px solid transparent;
-
-    transition:
-        background 0.4s ease,
-        border-color 0.4s ease,
-        height 0.4s ease;
-}
-
-.navbar.scrolled {
-    height: 68px;
-    background: rgba(244, 239, 229, 0.9);
-    border-color: var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 .logo {
@@ -199,9 +189,9 @@ body {
 }
 
 .hero h1 {
-    font-family: var(--serif);
+    font-family: var(--sans);
 
-    font-size: clamp(10rem, 20vw, 4.5rem);
+    font-size: clamp(3rem, 8vw, 7rem);
 
     line-height: 0.88;
     font-weight: 500;
@@ -304,31 +294,32 @@ body {
 .hero-coordinate {
     position: absolute;
 
-    right: 5vw;
-    bottom: 90px;
+    right: 1vw;
+    bottom: 40px;
 
     display: flex;
     flex-direction: column;
 
     text-align: right;
 
-    font-size: 0.62rem;
+    font-size: 1rem;
     letter-spacing: 0.14em;
 
     color: var(--muted);
+    white-space: nowrap;
 }
 
 .scroll-indicator {
     position: absolute;
 
-    left: 5vw;
-    bottom: 35px;
+    right: 70vw;
+    bottom: 4px;
 
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 9px;
 
-    font-size: 0.65rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
 
@@ -341,13 +332,13 @@ body {
 
     background: var(--copper);
 
-    animation: scrollPulse 2s infinite;
+    animation: scrollPulse 0.5s infinite;
 }
 
 @keyframes scrollPulse {
     0%, 100% {
         width: 20px;
-        opacity: 0.4;
+        opacity: 0.9;
     }
 
     50% {
@@ -778,7 +769,7 @@ footer {
 
     transition:
         opacity 0.9s ease,
-        transform 0.9s cubic-bezier(.2,.7,.2,1);
+        transform 0.9s cubic-bezier(.2, .7, .2, 1);
 }
 
 .section.visible > *,
@@ -869,4 +860,202 @@ footer {
     #scienceCanvas {
         display: none;
     }
+}
+/* =========================================================
+   ATOMIC HERO ANIMATION
+   ========================================================= */
+
+.atom-animation {
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    right: 0.001vw;
+    top: 45%;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    opacity: 0.82;
+}
+
+
+/* ---------------------------------------------------------
+   NUCLEUS
+   --------------------------------------------------------- */
+
+.atom-nucleus {
+    position: absolute;
+
+    width: 28px;
+    height: 28px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f82109 5%,
+            #f0d403 25%,
+            #f6b604 70%,
+            #f87103 100%
+        );
+
+    box-shadow:
+        0 0 12px rgba(36, 75, 99, 0.25),
+        0 0 30px rgba(155, 96, 69, 0.12);
+
+    z-index: 5;
+}
+
+
+/* ---------------------------------------------------------
+   ORBITAL PATHS
+   --------------------------------------------------------- */
+
+.atom-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 340px;
+    height: 150px;
+
+    border: 1px solid rgba(3, 28, 44, 0.25);
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    transform-origin: center center;
+}
+
+
+/*
+    Three different orbital planes.
+*/
+
+.orbit-1 {
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+}
+
+.orbit-2 {
+    transform:
+        translate(-50%, -50%)
+        rotate(60deg);
+}
+
+.orbit-3 {
+    transform:
+        translate(-50%, -50%)
+        rotate(-60deg);
+}
+
+
+/* =========================================================
+   ELECTRONS
+   ========================================================= */
+
+.electron {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 8px;
+    height: 8px;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #eb3427;
+
+    box-shadow:
+        0 0 5px rgba(235, 13, 94, 0.65),
+        0 0 14px rgba(210, 203, 4, 0.35);
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   VERY SUBTLE NUCLEUS PULSE
+   --------------------------------------------------------- */
+
+@keyframes nucleusPulse {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+}
+
+.atom-nucleus {
+    animation:
+        nucleusPulse 3s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+
+    .atom-animation {
+        right: -70px;
+
+        transform:
+            translateY(-10%)
+            scale(0.75);
+
+        opacity: 0.15;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .atom-animation {
+        right: -110px;
+
+        transform:
+            translateY(-50%)
+            scale(0.62);
+
+        opacity: 0.10;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .atom-animation {
+        display: none;
+    }
+
 }
