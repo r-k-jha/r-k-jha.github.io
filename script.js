@@ -305,7 +305,7 @@ window.addEventListener("scroll", () => {
 
 const revealElements =
     document.querySelectorAll(
-        ".section > *, .project"
+        ".section, .project"
     );
 
 
@@ -347,3 +347,52 @@ revealElements.forEach((element) => {
 resizeCanvas();
 
 requestAnimationFrame(drawParticles);
+/* =========================================================
+   ATOM — TRUE ELLIPTICAL ELECTRON MOTION
+   ========================================================= */
+
+const atom = document.querySelector(".atom-animation");
+
+if (atom) {
+
+    const electrons = [
+        {
+            element: atom.querySelector(".orbit-1 .electron"),
+            angle: 0,
+            speed: 0.0030
+        },
+        {
+            element: atom.querySelector(".orbit-2 .electron"),
+            angle: 2,
+            speed: -0.0030
+        },
+        {
+            element: atom.querySelector(".orbit-3 .electron"),
+            angle: 4,
+            speed: 0.0030
+        }
+    ];
+
+    function animateElectrons(time) {
+
+        electrons.forEach((electron) => {
+
+            const a = 170;
+            const b = 75;
+
+            const theta =
+                electron.angle +
+                time * electron.speed;
+
+            const x = a * Math.cos(theta);
+            const y = b * Math.sin(theta);
+
+            electron.element.style.transform =
+                `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+        });
+
+        requestAnimationFrame(animateElectrons);
+    }
+
+    requestAnimationFrame(animateElectrons);
+}
