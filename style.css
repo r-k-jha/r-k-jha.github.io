@@ -146,10 +146,10 @@ body {
    ========================================================= */
 
 .hero {
-    min-height: 100vh;
+    min-height: 70vh;
 
     max-width: var(--max-width);
-    margin: auto;
+    margin: 10;
 
     padding: 150px 5vw 80px;
 
@@ -159,9 +159,22 @@ body {
     position: relative;
 }
 
+.hero-subtext {
+    position: relative;
+    left: 7px;
+    top: 40px;
+}
+
+.hero-tags,
+.hero-actions {
+    position: relative;
+    top: 27px;
+}
+
 .hero-content {
     max-width: 850px;
-
+    position: relative;
+    top: 100px;
     animation: heroReveal 1.2s cubic-bezier(.2,.7,.2,1) both;
 }
 
@@ -179,11 +192,11 @@ body {
 
 .eyebrow,
 .small-heading {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     font-weight: 600;
 
     letter-spacing: 0.18em;
-    text-transform: uppercase;
+    text-transform: none;
 
     color: var(--muted);
 }
@@ -198,8 +211,11 @@ body {
 
     letter-spacing: -0.055em;
 
-    margin: 28px 0 35px;
+    margin: 28px 0 5px;
+    position: relative;
+    top: 30px;
 }
+
 
 .hero h1 span {
     display: block;
@@ -209,7 +225,7 @@ body {
 .hero-description {
     max-width: 600px;
 
-    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-size: clamp(0.85rem, 1vw, 0.90rem);
     line-height: 1.6;
 
     color: #4d4b45;
@@ -248,7 +264,7 @@ body {
     display: flex;
     gap: 12px;
 
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .button {
@@ -294,15 +310,15 @@ body {
 .hero-coordinate {
     position: absolute;
 
-    right: 1vw;
-    bottom: 40px;
+    right: 0.01vw;
+    top: 280px;
 
     display: flex;
     flex-direction: column;
 
     text-align: right;
 
-    font-size: 1rem;
+    font-size: 0.85rem;
     letter-spacing: 0.14em;
 
     color: var(--muted);
@@ -313,7 +329,7 @@ body {
     position: absolute;
 
     right: 70vw;
-    bottom: 4px;
+    top: 320px;
 
     display: flex;
     align-items: center;
@@ -405,7 +421,7 @@ body {
    ========================================================= */
 
 .about-section {
-    border-top: 1px solid var(--line);
+    padding-top: 200px
 }
 
 .about-content {
@@ -871,8 +887,8 @@ footer {
     width: 390px;
     height: 390px;
 
-    right: 0.001vw;
-    top: 45%;
+    left: 65vw;
+    top: 55%;
 
     transform: translateY(-50%);
 
@@ -1058,4 +1074,22 @@ footer {
         display: none;
     }
 
+}
+.hero-photo {
+    position: absolute;
+    right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 280px;
+    height: 360px;
+
+    z-index: 2;
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
