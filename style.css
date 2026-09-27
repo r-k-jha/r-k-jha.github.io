@@ -617,7 +617,7 @@ body {
 
 .hero-photo {
     position: absolute;
-    right: 94vw;
+    left: 114vw;
     top: 900px;
     transform: translateY(-50%);
 
