@@ -1,0 +1,2854 @@
+/* =========================================================
+   RAVI KANT JHA — PERSONAL RESEARCH WEBSITE
+   Cinematic Cream / Scientific Editorial Design
+   ========================================================= */
+
+:root {
+    --cream: #d9f4f8;
+    --cream-light: #7df7eb;
+    --paper: #52595f;
+    --ink: #00000d;
+    --muted: #031f4a;
+    --extra: #0c8807;
+    --line: rgba(8, 227, 92, 0.16);
+    --blue: #244b63;
+    --copper: #9b6045;
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+
+    --max-width: 1240px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   BACKGROUND CANVAS
+   ========================================================= */
+
+#scienceCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.65;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    z-index: 100;
+
+    background: rgba(163, 217, 245, 0.72);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--ink);
+
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.logo span {
+    color: var(--copper);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+}
+
+.nav-links a,
+.nav-cv {
+    color: var(--ink);
+    text-decoration: none;
+
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--copper);
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cv {
+    border: 1px solid var(--ink);
+    padding: 9px 15px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.nav-cv:hover {
+    background: var(--ink);
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+.section {
+    max-width: var(--max-width);
+    margin: auto;
+
+    padding: 150px 5vw;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 0.68rem;
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+    margin-bottom: 65px;
+}
+
+.section-label span {
+    color: var(--copper);
+}
+
+.section-heading h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(2.5rem, 5vw, 5rem);
+
+    line-height: 1.05;
+    font-weight: 500;
+
+    letter-spacing: -0.04em;
+
+    margin-top: 18px;
+}
+
+.section-heading h2 em {
+    color: var(--blue);
+    font-style: normal;
+}
+
+.centered {
+    text-align: center;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 70vh;
+
+    max-width: var(--max-width);
+    margin: 10;
+
+    padding: 150px 5vw 80px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.hero-subtext {
+    position: relative;
+    left: 7px;
+    top: 70px;
+}
+
+.hero-actions {
+    position: relative;
+    bottom: 85px;
+}
+
+.hero-content {
+    max-width: 2000px;
+    position: relative;
+    top: 70px;
+    animation: heroReveal 1.2s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow,
+.small-heading {
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    letter-spacing: 0.18em;
+    text-transform: none;
+
+    color: var(--muted);
+}
+
+.hero h1 {
+    font-family: var(--sans);
+
+    font-size: clamp(5rem, 50vw, 9rem);
+
+    line-height: 0.88;
+    font-weight: 500;
+
+    letter-spacing: -0.055em;
+
+    margin: 28px 0 5px;
+    position: relative;
+    bottom: 85px;
+    right: 25px;
+}
+
+
+.hero h1 span {
+    display: block;
+    color: var(--blue);
+}
+
+.hero-description {
+    position: relative;
+    font-family: var(--serif);
+    right: 27px;
+    bottom: 110px;
+
+    font-size: 2.2rem;
+    line-height: 1.6;
+
+    color: #4d4b45;
+}
+
+.hero-description span {
+    color: #032f70 !important;
+}
+
+.hero-tags {
+    position: relative;
+    left: 810px;
+    bottom: 0.1px;
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+    margin-top: 95px;
+}
+
+
+
+.hero-tags span {
+    padding: 8px 13px;
+
+    border: 1px solid var(--line);
+
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+
+    background: rgba(250, 247, 240, 0.45);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.hero-tags span:hover {
+    transform: translateY(-3px);
+    border-color: var(--copper);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 50px;
+    left: 50px;
+}
+
+.button {
+    text-decoration: none;
+
+    padding: 13px 20px;
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button-primary {
+    background: var(--ink);
+    color: var(--cream);
+}
+
+.button-primary span {
+    margin-left: 12px;
+}
+
+.button-secondary {
+    border: 1px solid var(--ink);
+    color: var(--ink);
+}
+
+.button-secondary:hover {
+    background: var(--ink);
+    color: var(--cream);
+}
+
+.hero-coordinate {
+    position: absolute;
+    right: 56.7vw;
+    top: 490px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: right;
+
+
+    font-size: 1.15rem;
+    letter-spacing: 0.14em;
+
+    color: var(--extra);
+    white-space: nowrap;
+}
+
+.scroll-indicator span {
+    width: 32px;
+    height: 1px;
+
+    background: var(--copper);
+
+    animation: scrollPulse 0.5s infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% {
+        width: 20px;
+        opacity: 0.9;
+    }
+
+    50% {
+        width: 40px;
+        opacity: 1;
+    }
+}
+
+.hero-tags > span:first-child {
+    font-size: 1rem !important;
+}
+
+.hero-tags > span:nth-child(2) {
+    font-size: 1rem !important;
+}
+
+
+/* =========================================================
+   ATOMIC HERO ANIMATION
+   ========================================================= */
+
+.atom-animation {
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    left: 67vw;
+    top: 49%;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    opacity: 0.82;
+}
+
+
+/* ---------------------------------------------------------
+   NUCLEUS
+   --------------------------------------------------------- */
+
+.atom-nucleus {
+    position: absolute;
+
+    width: 28px;
+    height: 28px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f82109 5%,
+            #f0d403 25%,
+            #f6b604 70%,
+            #f87103 100%
+        );
+
+    box-shadow:
+        0 0 12px rgba(36, 75, 99, 0.25),
+        0 0 30px rgba(155, 96, 69, 0.12);
+
+    z-index: 5;
+}
+
+
+/* ---------------------------------------------------------
+   ORBITAL PATHS
+   --------------------------------------------------------- */
+
+.atom-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 340px;
+    height: 150px;
+
+    border: 1px solid rgba(3, 28, 44, 0.25);
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    transform-origin: center center;
+}
+
+
+/*
+    Three different orbital planes.
+*/
+
+.orbit-1 {
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+}
+
+.orbit-2 {
+    transform:
+        translate(-50%, -50%)
+        rotate(60deg);
+}
+
+.orbit-3 {
+    transform:
+        translate(-50%, -50%)
+        rotate(-60deg);
+}
+
+
+/* =========================================================
+   ELECTRONS
+   ========================================================= */
+
+.electron {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 8px;
+    height: 8px;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #eb3427;
+
+    box-shadow:
+        0 0 5px rgba(235, 13, 94, 0.65),
+        0 0 14px rgba(210, 203, 4, 0.35);
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   VERY SUBTLE NUCLEUS PULSE
+   --------------------------------------------------------- */
+
+@keyframes nucleusPulse {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+}
+
+.atom-nucleus {
+    animation:
+        nucleusPulse 3s ease-in-out infinite;
+}
+
+/* =========================================================
+   1. ABOUT
+   ========================================================= */
+
+.about-section {
+    padding-top: 100px
+}
+
+.about-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10vw;
+}
+
+.about-content > :first-child {
+    position: relative;
+    top: 90px;
+    left: 20px;
+}
+
+.large-text {
+    font-size: 1.3rem;
+    line-height: 1.65;
+    position: relative;
+    top: 40px;
+
+    margin-bottom: 28px;
+}
+.about-text p:not(.large-text) {
+    color: var(--muted);
+    line-height: 1.8;
+    position: relative;
+    top: 25px;
+    margin-bottom: 20px;
+}
+
+.hero-photo {
+    position: absolute;
+    right: 64vw;
+    top: 900px;
+    transform: translateY(-50%);
+
+    width: 130px;
+    height: auto;
+
+    z-index: 2;
+}
+
+.hero-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.contact-photo {
+    position: relative;
+    left: 68vw;
+    bottom: 454px;
+    transform: translateY(50%);
+
+    width: 200px;
+    height: auto;
+
+    z-index: 2;
+}
+
+.contact-photo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* =====================================================
+   2. SKILLS SECTION — INDEPENDENT CONTROLS
+   ===================================================== */
+
+.skills-section {
+    position: relative;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+/* ---------- Skills section title ---------- */
+
+.skills-section .section-label {
+    position: relative;
+    top: 0px;
+    left: 0px;
+
+    font-size: 0.85rem;
+}
+
+.skills-section .section-heading {
+    position: relative;
+    top: 10px;
+    left: 0px;
+
+    text-align: center;
+}
+
+/* Small heading: "AREAS OF EXPLORATION" */
+
+.skills-section .small-heading {
+    position: relative;
+    bottom: 50px;
+    left: 0px;
+
+    font-size: 0.85rem;
+}
+
+/* Main heading: "Where physics meets computation." */
+
+.skills-section .section-heading h2 {
+    position: relative;
+    bottom: 40px;
+    left: 0px;
+
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+/* ---------- Skills cards ---------- */
+
+.skills-section .research-grid {
+    position: relative;
+    bottom: 30px;
+    left: 0px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Individual skill card */
+
+.skills-section .research-item {
+    position: relative;
+
+    top: 0px;
+    left: 0px;
+
+    padding: 35px;
+}
+
+/* Skill number: 01, 02, 03, 04 */
+
+.skills-section .research-number {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    font-size: 0.001rem;
+}
+
+/* Skill title */
+
+.skills-section .research-item h3 {
+    position: relative;
+    bottom: 5px;
+    left: 0px;
+
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    line-height: 1.1;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+/* Skill description */
+
+.skills-section .research-item p {
+    position: relative;
+    top: 0px;
+    left: 0px;
+
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-top: 15px;
+}
+
+/* Symbols: ψ, ◈, ↑↓, ⇄ */
+
+.skills-section .research-symbol {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    font-size: 0.1rem;
+}
+
+.skills-section .skill-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.skills-section .skill-list span {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #f91c0c;
+}
+
+/* =========================================================
+   4. RESEARCH INTERESTS — INDEPENDENT CONTROLS
+   ========================================================= */
+
+.research-section {
+    position: relative;
+
+    padding-top: 80px;
+    padding-bottom: 120px;
+
+    border-top: 1px solid var(--line);
+}
+
+/* ---------- Section label ---------- */
+
+.research-section .section-label {
+    position: relative;
+
+    top: 10px;
+    left: 0px;
+
+    font-size: 0.85rem;
+}
+
+/* ---------- Section heading ---------- */
+
+.research-section .section-heading {
+    position: relative;
+
+    top: 50px;
+    left: 0px;
+
+    text-align: center;
+}
+
+/* Small heading:
+   "AREAS OF EXPLORATION"
+*/
+
+.research-section .small-heading {
+    position: relative;
+
+    bottom: 70px;
+    left: 0px;
+
+    font-size: 0.85rem;
+}
+
+/* Main heading:
+   "Where physics meets computation."
+*/
+
+.research-section .section-heading h2 {
+    position: relative;
+    bottom: 85px;
+    left: 0px;
+
+    font-family: var(--serif)
+
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   RESEARCH CARDS
+   ========================================================= */
+
+.research-section .research-grid {
+    position: relative;
+
+    bottom: 100px;
+    left: 0px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+
+    margin-top: 90px;
+}
+
+
+/* ---------- Individual research card ---------- */
+
+.research-section .research-item {
+    position: relative;
+
+    min-height: 330px;
+
+    top: 0px;
+    left: 0px;
+
+    padding: 35px;
+
+    border: 1px solid var(--line);
+
+    overflow: hidden;
+
+    transition:
+        background 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+/* ---------- Card hover ---------- */
+
+.research-section .research-item:hover {
+    background: rgba(250, 247, 240, 0.75);
+
+    transform: translateY(-5px);
+}
+
+
+/* ---------- Research number ---------- */
+
+.research-section .research-number {
+    position: relative;
+
+    top: 0px;
+    left: 0px;
+
+    font-size: 0.68rem;
+
+    color: var(--copper);
+
+    letter-spacing: 0.1em;
+}
+
+
+/* ---------- Research title ---------- */
+
+.research-section .research-item h3 {
+    position: relative;
+
+    top: 0px;
+    left: 0px;
+
+    margin-top: 45px;
+
+    max-width: 300px;
+
+    font-family: var(--serif);
+
+    font-size: 2rem;
+    line-height: 1.05;
+    font-weight: 500;
+}
+
+
+/* ---------- Research description ---------- */
+
+.research-section .research-item p {
+    position: relative;
+
+    top: 0px;
+    left: 0px;
+
+    max-width: 380px;
+
+    margin-top: 22px;
+
+    color: var(--muted);
+
+    font-family: var(--sans);
+
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* ---------- Research symbol ---------- */
+
+.research-section .research-symbol {
+    position: absolute;
+
+    right: 35px;
+    bottom: 25px;
+
+    font-family: var(--serif);
+
+    font-size: 4rem;
+
+    color: rgba(36, 75, 99, 0.13);
+
+    transition:
+        transform 0.6s ease,
+        color 0.6s ease;
+}
+
+
+/* ---------- Symbol hover ---------- */
+
+.research-section .research-item:hover .research-symbol {
+    transform:
+        translateY(-10px)
+        rotate(5deg);
+
+    color: rgba(155, 96, 69, 0.3);
+}
+
+/* =========================================================
+   PROJECTS — CARD LAYOUT
+   ========================================================= */
+
+.projects-section {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 120px;
+}
+
+/* Section label */
+.projects-section .section-label {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    font-size: 0.85rem;
+}
+
+/* Section heading */
+.projects-section .section-heading {
+    position: relative;
+    top: 40px;
+    left: 0px;
+    text-align: center;
+}
+
+.projects-section .small-heading {
+    position: relative;
+    bottom: 90px;
+    left: 0px;
+    font-size: 0.85rem;
+}
+
+.projects-section .section-heading h2 {
+    position: relative;
+    bottom: 95px;
+    left: 0px;
+
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+/* Project cards */
+.projects-section .project-list {
+    position: relative;
+    bottom: 120px;
+    left: 0px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    margin-top: 90px;
+}
+
+/* Individual card */
+.projects-section .project {
+    position: relative;
+
+    display: block;
+
+    min-height: 330px;
+
+    padding: 35px;
+
+    border: 1px solid var(--line);
+
+    transition:
+        background 0.5s ease,
+        transform 0.5s ease;
+}
+
+/* Remove old horizontal-list behavior */
+.projects-section .project:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.projects-section .project:hover {
+    padding-left: 35px;
+    transform: translateY(-5px);
+    background: rgba(250, 247, 240, 0.75);
+}
+
+/* Project number / metadata */
+.projects-section .project-meta {
+    position: relative;
+    top: 0px;
+    left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+}
+
+/* Project title */
+.projects-section .project-main h3 {
+    position: relative;
+    top: 0px;
+    left: 0px;
+
+    margin-top: 45px;
+
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+/* Colored part of title */
+.projects-section .project-main h3 span {
+    color: var(--blue);
+}
+
+/* Project description */
+.projects-section .project-main p {
+    position: relative;
+    top: 0px;
+    left: 0px;
+
+    max-width: 380px;
+
+    margin-top: 18px;
+
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.7;
+
+    color: var(--muted);
+}
+
+/* Arrow */
+.projects-section .project-arrow {
+    position: absolute;
+    right: 25px;
+    bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Hide arrow movement from old layout */
+.projects-section .project:hover .project-arrow {
+    transform: translate(5px, -5px);
+    color: var(--copper);
+}
+
+/* =========================================================
+   BEYOND PHYSICS — INDEPENDENT CONTROLS
+   ========================================================= */
+
+.beyond-section {
+    position: relative;
+
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    border-top: 1px solid var(--line);
+}
+
+
+/* ---------- Section label ---------- */
+
+.beyond-section .section-label {
+    position: relative;
+
+    bottom: 25px;
+    left: 0px;
+
+    font-size: 0.85rem;
+}
+
+
+/* ---------- Section heading ---------- */
+
+.beyond-section .section-heading {
+    position: relative;
+
+    bottom: 20px;
+    left: 0px;
+
+    text-align: center;
+}
+
+
+/* ---------- Small heading ---------- */
+
+.beyond-section .small-heading {
+    position: relative;
+
+    bottom: 50px;
+    left: 0px;
+
+    font-size: 0.85rem;
+}
+
+
+/* ---------- Main heading ---------- */
+
+.beyond-section .section-heading h2 {
+    position: relative;
+
+    bottom: 58px;
+    left: 0px;
+
+    font-family: var(--serif);
+
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   BEYOND PHYSICS CARDS
+   ========================================================= */
+
+.beyond-grid {
+    position: relative;
+
+    bottom: 150px;
+    left: 0px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+
+    margin-top: 90px;
+}
+
+
+/* ---------- Individual card ---------- */
+
+.beyond-item {
+    position: relative;
+
+    min-height: 330px;
+
+    padding: 35px;
+
+    border: 1px solid var(--line);
+
+    overflow: hidden;
+
+    transition:
+        background 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+/* ---------- Card hover ---------- */
+
+.beyond-item:hover {
+    background: rgba(250, 247, 240, 0.75);
+
+    transform: translateY(-5px);
+}
+
+
+/* ---------- Number ---------- */
+
+.beyond-number {
+    position: relative;
+
+    top: 0px;
+    left: 0px;
+
+    font-size: 0.68rem;
+
+    color: var(--copper);
+
+    letter-spacing: 0.1em;
+}
+
+
+/* ---------- Title ---------- */
+
+.beyond-item h3 {
+    position: relative;
+
+    top: 0px;
+    left: 0px;
+
+    margin-top: 45px;
+
+    max-width: 300px;
+
+    font-family: var(--serif);
+
+    font-size: 1.5rem;
+    line-height: 1.05;
+    font-weight: 500;
+}
+
+
+/* ---------- Description ---------- */
+
+.beyond-item p {
+    position: relative;
+
+    top: 0px;
+    left: 0px;
+
+    max-width: 380px;
+
+    margin-top: 22px;
+
+    color: var(--muted);
+
+    font-family: var(--sans);
+
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* ---------- Symbol ---------- */
+
+.beyond-symbol {
+    position: absolute;
+
+    right: 35px;
+    bottom: 25px;
+
+    font-family: var(--serif);
+
+    font-size: 4rem;
+
+    color: rgba(36, 75, 99, 0.13);
+
+    transition:
+        transform 0.6s ease,
+        color 0.6s ease;
+}
+
+
+/* ---------- Symbol hover ---------- */
+
+.beyond-item:hover .beyond-symbol {
+    transform:
+        translateY(-10px)
+        rotate(5deg);
+
+    color: rgba(155, 96, 69, 0.3);
+}
+
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-section {
+    border-top: 10px solid var(--line);
+
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.contact-inner {
+    max-width: 900px;
+}
+
+.contact-inner h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(3.5rem, 8vw, 8rem);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    letter-spacing: -0.05em;
+
+    margin: 25px 0;
+}
+
+.contact-inner h2 em {
+    color: var(--blue);
+    font-style: normal;
+}
+
+.contact-inner > p:not(.small-heading) {
+    max-width: 550px;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    margin-top: 45px;
+}
+
+.contact-links a {
+    color: var(--ink);
+
+    text-decoration: none;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid var(--ink);
+
+    padding-bottom: 5px;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: var(--copper);
+    border-color: var(--copper);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    border-top: 1px solid var(--line);
+
+    padding: 30px 5vw;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: var(--muted);
+}
+
+
+
+
+
+
+
+
+/* =========================================================
+   MOBILE SYSTEM
+   RAVI KANT JHA — PHONE VERSION
+   ========================================================= */
+
+/*
+   IMPORTANT:
+
+   This section controls ONLY screens <= 768px.
+
+   Desktop design remains controlled by the CSS above.
+
+   Main mobile controls:
+   1. Navigation
+   2. Hero
+   3. About
+   4. Skills
+   5. Projects
+   6. Research Interests
+   7. Beyond Physics
+   8. Contact
+   9. Footer
+   10. Mobile atom
+*/
+
+
+@media (max-width: 768px) {
+
+
+    /* =====================================================
+       01. GLOBAL MOBILE SETTINGS
+       ===================================================== */
+
+    html {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    main {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* =====================================================
+       02. NAVIGATION
+       ===================================================== */
+
+    .navbar {
+        height: 68px;
+
+        padding: 0 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background: rgba(163, 217, 245, 0.88);
+
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+
+    /* Logo */
+
+    .logo {
+        font-size: 0.95rem;
+        letter-spacing: 0.07em;
+        white-space: nowrap;
+    }
+
+
+    /* Desktop navigation becomes mobile menu */
+
+    .nav-links {
+        position: absolute;
+
+        top: 68px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+
+        gap: 0;
+
+        padding: 12px 20px 18px;
+
+        background: rgba(217, 244, 248, 0.97);
+
+        border-bottom: 1px solid var(--line);
+
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+
+        box-sizing: border-box;
+    }
+
+
+    .nav-links.mobile-open {
+        display: flex;
+    }
+
+
+    .nav-links a {
+        display: block;
+
+        padding: 13px 5px;
+
+        font-size: 0.75rem;
+
+        letter-spacing: 0.08em;
+
+        border-bottom: 1px solid rgba(8, 227, 92, 0.08);
+    }
+
+
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+
+    /* CV */
+
+    .nav-cv {
+        display: none;
+    }
+
+
+    /* Mobile menu button */
+
+    .mobile-menu-toggle {
+        display: none;
+
+        width: 38px;
+        height: 38px;
+
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        border: 1px solid var(--ink);
+
+        background: transparent;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-menu-toggle span {
+        display: block;
+
+        width: 17px;
+        height: 1px;
+
+        background: var(--ink);
+
+        transition:
+            transform 0.3s ease,
+            opacity 0.3s ease;
+    }
+
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+
+    /* =====================================================
+       03. HERO
+       ===================================================== */
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 100svh;
+
+        margin: 0;
+
+        padding: 110px 24px 70px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: flex-start;
+        justify-content: center;
+
+        position: relative;
+
+        box-sizing: border-box;
+    }
+
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+
+        position: relative;
+
+        top: auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+
+        z-index: 3;
+    }
+
+
+    /* Name */
+
+    .hero h1 {
+        width: 120%;
+
+        font-size: clamp(4rem, 15vw, 6rem);
+
+        line-height: 0.9;
+
+        letter-spacing: -0.055em;
+
+        margin: 0 0 28px;
+
+        position: relative;
+
+        top: auto;
+        left: 8px;
+        bottom: 15px;
+
+        word-break: normal;
+    }
+
+
+    /* Hero description */
+
+    .hero-subtext {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+
+        margin-bottom: 28px;
+    }
+
+
+    .hero-description {
+        display: block;
+
+        position: relative;
+
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+
+        font-family: var(--serif);
+
+        font-size: clamp(1.25rem, 5vw, 1.7rem);
+
+        line-height: 1.45;
+
+        color: #4d4b45;
+    }
+
+
+    .hero-description span {
+        color: #032f70 !important;
+    }
+
+
+    /* Hero tags */
+
+    .hero-tags {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+        top: auto;
+
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        margin: 0 0 28px;
+    }
+
+
+    .hero-tags span,
+    .hero-tags > span:first-child,
+    .hero-tags > span:nth-child(2) {
+        font-size: 0.7rem !important;
+
+        padding: 7px 10px;
+
+        line-height: 1.3;
+    }
+
+
+    /* Hero button */
+
+    .hero-actions {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+
+        display: flex;
+
+        margin: 0;
+
+        gap: 10px;
+    }
+
+
+    .button {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 12px 16px;
+
+        font-size: 0.68rem;
+
+        line-height: 1.3;
+    }
+
+
+    /* IIT Mandi */
+
+    .hero-coordinate {
+        position: absolute;
+
+        left: 24px;
+        bottom: 222px;
+
+        width: calc(100% - 48px);
+
+        display: block;
+
+        text-align: left;
+
+        font-size: 1.8rem;
+        color: var(--extra);
+
+        white-space: normal;
+    }
+
+
+    .hero-coordinate > div {
+        display: none;
+    }
+
+
+
+/* =========================================================
+PHONE — MOVE HOME TEXT DOWN
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Tagline */
+    .hero-subtext {
+        position: absolute !important;
+        top: 40px !important;
+        left: 12px !important;
+    }
+
+    /* DFT + Computational Condensed Matter Physics */
+    .hero-tags {
+        position: relative !important;
+        top: 170px !important;
+        left: 0 !important;
+    }
+
+    /* Scroll to Explore More button */
+    .hero-actions {
+        position: relative !important;
+        top: 180px !important;
+        left: 40px !important;
+    }
+
+    .hero-coordinate {
+        position: absolute !important;
+        font-size: 1rem !important;
+
+        right: auto !important;
+        left: 33px !important;
+        top: 66.5% !important;
+    }
+
+}
+
+
+
+
+
+    /* =====================================================
+       04. HERO ATOM
+       ===================================================== */
+
+    /*
+       On mobile the atom becomes a subtle background
+       element instead of competing with the text.
+    */
+
+    .hero .atom-animation {
+        display: block;
+
+        width: 250px;
+        height: 250px;
+
+        left: auto;
+        left: 60px;
+        top: 74%;
+
+        transform: translateY(-50%);
+
+        opacity: 0.10;
+
+        z-index: 1;
+
+        pointer-events: none;
+    }
+
+
+    .hero .atom-orbit {
+        width: 220px;
+        height: 100px;
+    }
+
+
+    .hero .electron {
+        width: 6px;
+        height: 6px;
+    }
+
+
+    .hero .atom-nucleus {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    /* =====================================================
+       05. PROFILE PHOTO
+       ===================================================== */
+
+    .hero-photo {
+        position: relative;
+
+        left: 10%;
+
+        top: auto;
+        bottom: 390px;
+
+        width: 185px;
+        height: auto;
+
+        transform: none;
+
+        z-index: 4;
+    }
+
+
+    .hero-photo img {
+        width: 1000%;
+        height: auto;
+    }
+
+
+    /*
+       The contact photo was positioned at 5344px
+       on desktop. It must NOT remain absolutely
+       positioned on mobile.
+    */
+
+    .contact-photo {
+        display: none;
+
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        transform: none;
+    }
+
+
+    /* =====================================================
+       06. GENERAL SECTIONS
+       ===================================================== */
+
+    .section {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+
+        padding: 90px 24px;
+
+        box-sizing: border-box;
+    }
+
+
+    .section-label {
+        margin-bottom: 40px;
+
+        gap: 10px;
+
+        font-size: 0.65rem;
+
+        letter-spacing: 0.13em;
+    }
+
+
+    .section-heading {
+        width: 100%;
+    }
+
+
+    .section-heading h2 {
+        width: 100%;
+
+        font-size: clamp(2.3rem, 10vw, 3.5rem);
+
+        line-height: 1.05;
+
+        letter-spacing: -0.035em;
+    }
+
+
+    .small-heading {
+        font-size: 0.7rem;
+
+        line-height: 1.4;
+
+        letter-spacing: 0.13em;
+    }
+
+
+/* =========================================================
+   MOBILE NAVIGATION — FINAL OVERRIDE
+   ========================================================= */
+
+
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 78px;
+        padding: 0 6vw;
+        position: fixed;
+        z-index: 1000;
+    }
+
+    /* SHOW HAMBURGER */
+    .mobile-menu-toggle {
+        display: flex !important;
+
+        position: relative;
+        z-index: 2000;
+
+        width: 44px;
+        height: 44px;
+
+        margin-left: auto;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        padding: 0;
+
+        border: 1px solid var(--blue);
+        border-radius: 4px;
+
+        background: rgba(217, 244, 248, 0.9);
+
+        cursor: pointer;
+    }
+
+    .mobile-menu-toggle span {
+        display: block !important;
+
+        width: 22px;
+        height: 2px;
+
+        background: var(--ink);
+
+        border-radius: 2px;
+    }
+
+    /* HIDE DESKTOP LINKS */
+    .nav-links {
+        display: none !important;
+    }
+
+    /* SHOW LINKS WHEN BUTTON IS CLICKED */
+    .nav-links.mobile-open {
+        display: flex !important;
+
+        position: fixed;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        flex-direction: column;
+        gap: 0;
+
+        padding: 10px 6vw 20px;
+
+        background: rgba(217, 244, 248, 0.98);
+
+        border-bottom: 1px solid var(--line);
+
+        z-index: 1500;
+    }
+
+    .nav-links.mobile-open a {
+        display: block !important;
+
+        padding: 14px 0;
+
+        color: var(--ink);
+        text-decoration: none;
+
+        font-size: 1rem;
+    }
+
+    /* HIDE CV ON PHONE */
+    .nav-cv {
+        display: none !important;
+    }
+}
+
+
+
+    /* =====================================================
+       07. ABOUT
+       ===================================================== */
+
+    .about-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    .about-content {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 40px;
+
+        width: 100%;
+    }
+
+
+    .about-content > :first-child {
+        position: static;
+
+        width: 100%;
+    }
+
+
+    .about-text {
+        width: 100%;
+    }
+
+
+    .about-text .large-text {
+        position: static;
+
+        font-size: 1.1rem;
+
+        line-height: 1.65;
+
+        margin-bottom: 25px;
+    }
+
+
+    .about-text p:not(.large-text) {
+        position: static;
+
+        font-size: 0.95rem;
+
+        line-height: 1.75;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* =====================================================
+       08. SKILLS
+       ===================================================== */
+
+    .skills-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    .skills-section .section-label,
+    .skills-section .section-heading,
+    .skills-section .small-heading,
+    .skills-section .section-heading h2 {
+        position: static;
+    }
+
+
+    .skills-section .section-heading {
+        text-align: left;
+
+        margin-bottom: 45px;
+    }
+
+
+    .skills-section .small-heading {
+        margin-bottom: 14px;
+    }
+
+
+    .skills-section .section-heading h2 {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+    }
+
+
+    .skills-section .research-grid {
+        position: static;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+        width: 100%;
+    }
+
+
+    .skills-section .research-item {
+        position: relative;
+
+        width: 100%;
+
+        padding: 25px;
+
+        border: 1px solid var(--line);
+
+        box-sizing: border-box;
+    }
+
+
+    .skills-section .research-number {
+        display: block;
+
+        font-size: 0.65rem;
+    }
+
+
+    .skills-section .research-item h3 {
+        position: static;
+
+        margin: 22px 0 15px;
+
+        font-size: 1.4rem;
+    }
+
+
+    .skills-section .skill-list {
+        margin-top: 0;
+
+        gap: 7px;
+    }
+
+
+    .skills-section .skill-list span {
+        font-size: 0.9rem;
+
+        line-height: 1.45;
+
+        color: #f91c0c;
+    }
+
+
+    .skills-section .research-symbol {
+        position: absolute;
+
+        right: 22px;
+        bottom: 18px;
+
+        font-size: 2rem;
+    }
+
+
+    /* =====================================================
+       09. RESEARCH INTERESTS
+       ===================================================== */
+
+    .research-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    .research-section .section-label,
+    .research-section .section-heading,
+    .research-section .small-heading,
+    .research-section .section-heading h2 {
+        position: static;
+    }
+
+
+    .research-section .section-heading {
+        text-align: left;
+
+        margin-bottom: 45px;
+    }
+
+
+    .research-section .small-heading {
+        margin-bottom: 14px;
+    }
+
+
+    .research-section .section-heading h2 {
+        font-size: clamp(2.3rem, 10vw, 3.5rem);
+    }
+
+
+    .research-section .research-grid {
+        position: static;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+        margin-top: 0;
+    }
+
+
+    .research-section .research-item {
+        min-height: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        box-sizing: border-box;
+    }
+
+
+    .research-section .research-item h3 {
+        position: static;
+
+        margin-top: 28px;
+
+        max-width: none;
+
+        font-size: 1.6rem;
+
+        line-height: 1.1;
+    }
+
+
+    .research-section .research-item p {
+        position: static;
+
+        max-width: none;
+
+        margin-top: 18px;
+
+        font-size: 0.92rem;
+
+        line-height: 1.7;
+    }
+
+
+    .research-section .research-symbol {
+        right: 22px;
+        bottom: 18px;
+
+        font-size: 3rem;
+    }
+
+
+    /* =====================================================
+       10. PROJECTS
+       ===================================================== */
+
+    .projects-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    .projects-section .section-label,
+    .projects-section .section-heading,
+    .projects-section .small-heading,
+    .projects-section .section-heading h2 {
+        position: static;
+    }
+
+
+    .projects-section .section-heading {
+        text-align: left;
+
+        margin-bottom: 45px;
+    }
+
+
+    .projects-section .small-heading {
+        margin-bottom: 14px;
+    }
+
+
+    .projects-section .section-heading h2 {
+        font-size: clamp(2.3rem, 10vw, 3.5rem);
+    }
+
+
+    .projects-section .project-list {
+        position: static;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+        margin-top: 0;
+    }
+
+
+    .projects-section .project {
+        width: 100%;
+
+        min-height: 0;
+
+        padding: 25px;
+
+        box-sizing: border-box;
+    }
+
+
+    .projects-section .project-meta {
+        position: static;
+
+        gap: 7px;
+
+        font-size: 0.62rem;
+
+        line-height: 1.4;
+    }
+
+
+    .projects-section .project-main h3 {
+        position: static;
+
+        margin-top: 28px;
+
+        font-size: 1.55rem;
+
+        line-height: 1.1;
+    }
+
+
+    .projects-section .project-main p {
+        position: static;
+
+        max-width: none;
+
+        margin-top: 16px;
+
+        font-size: 0.92rem;
+
+        line-height: 1.7;
+    }
+
+
+    .projects-section .project-arrow {
+        right: 20px;
+        bottom: 18px;
+
+        font-size: 1.25rem;
+    }
+
+
+    /* =====================================================
+       11. BEYOND PHYSICS
+       ===================================================== */
+
+    .beyond-section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+
+    .beyond-section .section-label,
+    .beyond-section .section-heading,
+    .beyond-section .small-heading,
+    .beyond-section .section-heading h2 {
+        position: static;
+    }
+
+
+    .beyond-section .section-heading {
+        text-align: left;
+
+        margin-bottom: 45px;
+    }
+
+
+    .beyond-section .small-heading {
+        margin-bottom: 14px;
+    }
+
+
+    .beyond-section .section-heading h2 {
+        font-size: clamp(2.3rem, 10vw, 3.5rem);
+    }
+
+
+    .beyond-grid {
+        position: static;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+        margin-top: 0;
+    }
+
+
+    .beyond-item {
+        width: 100%;
+
+        min-height: 0;
+
+        padding: 25px;
+
+        box-sizing: border-box;
+    }
+
+
+    .beyond-number {
+        font-size: 0.65rem;
+    }
+
+
+    .beyond-item h3 {
+        position: static;
+
+        max-width: none;
+
+        margin-top: 28px;
+
+        font-size: 1.55rem;
+
+        line-height: 1.1;
+    }
+
+
+    .beyond-item p {
+        position: static;
+
+        max-width: none;
+
+        margin-top: 18px;
+
+        font-size: 0.92rem;
+
+        line-height: 1.7;
+    }
+
+
+    .beyond-symbol {
+        right: 22px;
+        bottom: 18px;
+
+        font-size: 3rem;
+    }
+
+
+    /* =====================================================
+       12. CONTACT
+       ===================================================== */
+
+    /*
+       Your HTML uses .contacts-section
+       while your desktop CSS uses .contact-section.
+
+       This mobile rule intentionally targets the
+       actual HTML class.
+    */
+
+    .contacts-section {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 100px 24px 90px;
+
+        display: block;
+
+        border-top: 1px solid var(--line);
+    }
+
+
+    .contact-inner {
+        width: 100%;
+
+        max-width: none;
+    }
+
+
+    .contact-inner h2 {
+        font-size: clamp(3rem, 14vw, 5rem);
+
+        line-height: 0.95;
+
+        margin: 22px 0 28px;
+
+        letter-spacing: -0.045em;
+    }
+
+
+    .contact-inner > a {
+        display: block;
+
+        width: 100%;
+
+        color: var(--muted);
+
+        text-decoration: none;
+
+        line-height: 1.7;
+
+        font-size: 0.92rem;
+    }
+
+
+    .contact-links {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+        margin-top: 35px;
+    }
+
+
+    .contact-links p {
+        font-size: 0.9rem;
+
+        line-height: 1.5;
+
+        word-break: break-word;
+    }
+
+
+    .contact-links a {
+        font-size: 0.7rem;
+
+        padding-bottom: 4px;
+    }
+
+    
+/* =========================================================
+   PHONE — CONTACT PHOTO
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    .contact-photo {
+        display: block !important;
+
+        position: relative !important;
+
+        width: 130px !important;
+        height: auto !important;
+
+        left: 65px !important;
+        bottom: 200px !important;
+
+        margin: 50px auto 0 !important;
+
+        transform: none !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+
+        z-index: 20 !important;
+    }
+
+    .contact-photo img {
+        display: block !important;
+
+        width: 100% !important;
+        height: auto !important;
+
+        max-width: 100% !important;
+
+        object-fit: contain !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+}
+
+    /* =====================================================
+       13. FOOTER
+       ===================================================== */
+
+    footer {
+        width: 100%;
+
+        padding: 25px 24px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        font-size: 0.58rem;
+
+        line-height: 1.5;
+
+        box-sizing: border-box;
+    }
+
+
+    /* =====================================================
+       14. MOBILE CANVAS
+       ===================================================== */
+
+    #scienceCanvas {
+        opacity: 0.35;
+    }
+
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   <= 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+
+    /* Hero */
+
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(3rem, 15vw, 4.5rem);
+    }
+
+
+    .hero-description {
+        font-size: 1.18rem;
+    }
+
+
+    .hero-coordinate {
+        left: 20px;
+
+        width: calc(100% - 40px);
+
+        font-size: 0.66rem;
+    }
+
+
+    .hero-photo {
+        right: 20px;
+
+        width: 72px;
+    }
+
+
+    /* Sections */
+
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* Cards */
+
+    .skills-section .research-item,
+    .research-section .research-item,
+    .projects-section .project,
+    .beyond-item {
+        padding: 22px;
+    }
+
+
+    /* Contact */
+
+    .contacts-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* Footer */
+
+    footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+
+/* =========================================================
+   PHONE — HERO PHOTO
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-photo {
+        position: absolute !important;
+
+        width: 130px !important;
+        height: auto !important;
+
+        left: 15% !important;
+        top: 11.5% !important;
+
+        transform: translateX(50%) !important;
+
+        z-index: 10;
+    }
+
+    .hero-photo img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover;
+        display: block;
+    }
+
+}
